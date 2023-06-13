@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="w-full bg-black fixed top-0 left-0 right-0 z-10 shadow-md shadow-cyan-500/50">
+      <nav className="w-full bg-black fixed top-0 left-0 right-0 z-10 shadow-md shadow-blue-500/50">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -60,5 +60,10 @@ export default function Navbar() {
         </div>
       </nav>
     </div>
+    // <div className="">
+    //   <Link href="/">Home</Link>
+    //   <Link href="/create">Create</Link>
+    //   <Link href="/login">Login</Link>
+    // </div>
   );
 }
