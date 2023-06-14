@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./lib/auth";
+import { connectDB } from "./lib/db/db";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession(authOptions);
-  console.log({ session });
+  // console.log({ session });
+  connectDB();
   return (
     <html lang="en">
       <body className={inter.className}>

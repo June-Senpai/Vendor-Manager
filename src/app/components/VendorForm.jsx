@@ -1,28 +1,51 @@
 "use client";
 
-import { useFormik } from "formik";
-
 function VendorForm() {
-  const formik = useFormik({
-    initialValues: {
-      vendorName: "",
-      bankAccountNo: "",
-      bankName: "",
-      addressLine1: "",
-      addressLine2: "",
-      city: "",
-      country: "",
-      zipCode: "",
-    },
-    onSubmit: (values) => {
-      // Submit form data to server
-    },
-  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("vendorName");
+    const accountNo = formData.get("bankAccountNo");
+    const bankName = formData.get("bankName");
+    const address1 = formData.get("addressLine1");
+    const address2 = formData.get("addressLine2");
+    const city = formData.get("city");
+    const country = formData.get("country");
+    const zip = formData.get("zipCode");
+    console.log({
+      name,
+      accountNo,
+      bankName,
+      address1,
+      address2,
+      country,
+      city,
+      zip,
+    });
+    const vendorData = {
+      name,
+      accountNo,
+      bankName,
+      address1,
+      address2,
+      country,
+      city,
+      zip,
+    };
+    console.log({ e });
+    fetch(`${process.env.NEXT_PUBLIC_URL}/api/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(vendorData),
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen mt-16 pt-11 pb-11 ">
       <form
-        onSubmit={formik.handleSubmit}
+        onSubmit={handleSubmit}
         className="flex flex-col items-center justify-center p-8 border border-blue-500 rounded-lg shadow-2xl shadow-blue-500"
       >
         <label
@@ -36,12 +59,9 @@ function VendorForm() {
           id="vendorName"
           name="vendorName"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.vendorName}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80 text-sky-400"
         />
-        {/*  */}
         <br />
 
         <label
@@ -55,8 +75,6 @@ function VendorForm() {
           id="bankAccountNo"
           name="bankAccountNo"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.bankAccountNo}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
@@ -72,8 +90,6 @@ function VendorForm() {
           id="bankName"
           name="bankName"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.bankName}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
@@ -89,8 +105,6 @@ function VendorForm() {
           id="addressLine1"
           name="addressLine1"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.addressLine1}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
@@ -106,8 +120,6 @@ function VendorForm() {
           id="addressLine2"
           name="addressLine2"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.addressLine2}
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
         <br />
@@ -119,8 +131,6 @@ function VendorForm() {
           id="city"
           name="city"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.city}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
@@ -134,8 +144,6 @@ function VendorForm() {
           id="country"
           name="country"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.country}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
@@ -148,8 +156,6 @@ function VendorForm() {
           id="zipCode"
           name="zipCode"
           type="text"
-          onChange={formik.handleChange}
-          value={formik.values.zipCode}
           required
           className="p-2 mb-4 text-black border border-gray-200 rounded-md w-80"
         />
