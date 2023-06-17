@@ -1,4 +1,4 @@
-import ShowVendor from "./components/ShowVendor";
+import ShowVendor from "../components/ShowVendor";
 
 export default function Home() {
   return (

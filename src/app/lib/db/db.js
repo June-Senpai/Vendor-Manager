@@ -35,10 +35,21 @@ export const db = {
     const { page } = data;
     const pageSize = 2;
     const toSkip = (page - 1) * pageSize;
-    console.log({ data });
+    // console.log({ data });
     await connectDB();
     const result = await Vendor.find().skip(toSkip).limit(pageSize).exec();
-    console.log({ result });
+    // console.log({ result });
+    return result;
+  },
+  delete: async (data) => {
+    await connectDB();
+    const result = await Vendor.findByIdAndDelete(data.id);
+    return result;
+  },
+  update: async (data) => {
+    await connectDB();
+    const result = await Vendor.findByIdAndUpdate(data.id, data);
+    console.log({ data });
     return result;
   },
 };

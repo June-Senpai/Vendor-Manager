@@ -1,5 +1,5 @@
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { getServerSession } from "next-auth";
@@ -20,9 +20,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        <Navbar session={session} />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
