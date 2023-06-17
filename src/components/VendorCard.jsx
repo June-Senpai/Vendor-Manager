@@ -32,7 +32,7 @@ export default ({ vendor, setVendors }) => {
   };
   return (
     <>
-      <div className="font-bold text-xl mb-2 text-blue-500 hover:text-black flex justify-between ">
+      <div className="font-bold text-xl mb-2 text-blue-500 hover:text-blue-200 flex justify-between ">
         {vendor.name}
         <div className="flex gap-1">
           <button

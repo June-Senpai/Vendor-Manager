@@ -43,16 +43,17 @@ export default function ShowVendor() {
   }, [loaderRef.current]);
 
   return (
-    <div className="mt-5 text-white">
+    <div className="mt-5 text-white ">
       <h1 className="text-2xl font-bold mb-5 flex hover:text-blue-200 justify-center ">
         Vendor List
       </h1>
-      <ul className="flex flex-col gap-8">
+      <ul className="flex flex-col gap-8 ">
         {vendors.map((vendor) => {
           return (
             <li
               key={vendor._id}
-              className="rounded border-t border-blue-300 shadow-2xl shadow-blue-500/50 bg-grey-500 hover:bg-gray-200 text-gray-700 p-4"
+              className="rounded border-t border-b bg-[url('/bgCard.gif')] border-blue-300 shadow-2xl shadow-blue-500/50 bg-grey-500 hover:bg-gray-200 text-gray-700 p-4"
+              style={{ width: "400px" }}
             >
               <VendorCard vendor={vendor} setVendors={setVendors} />
             </li>

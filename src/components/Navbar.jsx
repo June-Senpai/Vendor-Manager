@@ -61,12 +61,20 @@ export default function Navbar({ session }) {
                         alt="user-Image"
                       />
                       <h3>{session?.user?.name} </h3>
-                      <button onClick={() => signOut()}>
+                      <button onClick={() => signOut()} className="group">
                         <Image
-                          src="/logout.png"
+                          src="/logout-blue.png"
                           width={25}
                           height={25}
                           alt="logout"
+                          className="group-hover:hidden"
+                        />
+                        <Image
+                          src="/logout-red.png"
+                          width={25}
+                          height={25}
+                          alt="logout"
+                          className="hidden group-hover:inline-block"
                         />
                       </button>
                     </div>
