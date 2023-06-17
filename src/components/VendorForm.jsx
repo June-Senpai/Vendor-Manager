@@ -1,11 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 function VendorForm({
   mode = "create",
   vendor,
   handleCloseEditModal,
   setVendors,
 }) {
+  const router = useRouter();
+
   const isEditMode = mode === "edit";
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +65,7 @@ function VendorForm({
         });
       });
     }
+    router.push("/");
   };
 
   const formClass = mode === "edit" ? "" : "pt-11";

@@ -51,7 +51,7 @@ export default function ShowVendor() {
         {vendors.map((vendor) => {
           return (
             <li
-              // key={vendor._id}
+              key={vendor._id}
               className="rounded border-t border-blue-300 shadow-2xl shadow-blue-500/50 bg-grey-500 hover:bg-gray-200 text-gray-700 p-4"
             >
               <VendorCard vendor={vendor} setVendors={setVendors} />

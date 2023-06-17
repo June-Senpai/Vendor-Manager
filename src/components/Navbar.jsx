@@ -58,6 +58,7 @@ export default function Navbar({ session }) {
                         width={30}
                         height={30}
                         src={session?.user?.image}
+                        alt="user-Image"
                       />
                       <h3>{session?.user?.name} </h3>
                       <button onClick={() => signOut()}>
