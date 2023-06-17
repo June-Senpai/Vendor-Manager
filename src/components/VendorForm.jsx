@@ -22,17 +22,17 @@ function VendorForm({
     const city = formData.get("city");
     const country = formData.get("country");
     const zip = formData.get("zipCode");
-    console.log({
-      name,
-      accountNo,
-      bankName,
-      address1,
-      address2,
-      country,
-      city,
-      zip,
-    });
-    console.log({ isEditMode, vendor });
+    // console.log({
+    //   name,
+    //   accountNo,
+    //   bankName,
+    //   address1,
+    //   address2,
+    //   country,
+    //   city,
+    //   zip,
+    // });
+    // console.log({ isEditMode, vendor });
     const vendorData = {
       ...(isEditMode ? { id: vendor._id } : {}),
       name,
@@ -44,7 +44,7 @@ function VendorForm({
       city,
       zip,
     };
-    console.log({ e });
+    // console.log({ e });
 
     const routeByMode = isEditMode ? "update" : "create";
     await fetch(`${process.env.NEXT_PUBLIC_URL}/api/${routeByMode}`, {
@@ -59,7 +59,7 @@ function VendorForm({
       setVendors((prev) => {
         return prev.map((vendor) => {
           if (vendor._id === vendorData.id) {
-            console.log({ vendorData });
+            // console.log({ vendorData });
             return {
               ...vendorData,
               _id: vendorData.id,
