@@ -32,6 +32,7 @@ function VendorForm({
       city,
       zip,
     });
+    console.log({ isEditMode, vendor });
     const vendorData = {
       ...(isEditMode ? { id: vendor._id } : {}),
       name,
@@ -58,7 +59,11 @@ function VendorForm({
       setVendors((prev) => {
         return prev.map((vendor) => {
           if (vendor._id === vendorData.id) {
-            return vendorData;
+            console.log({ vendorData });
+            return {
+              ...vendorData,
+              _id: vendorData.id,
+            };
           } else {
             return vendor;
           }

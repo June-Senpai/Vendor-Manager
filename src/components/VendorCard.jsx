@@ -3,6 +3,7 @@ import Image from "next/image";
 import VendorForm from "./VendorForm";
 
 export default ({ vendor, setVendors }) => {
+  console.log({ vendor });
   const handleDelete = async (id) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/api/delete?id=${id}`,
