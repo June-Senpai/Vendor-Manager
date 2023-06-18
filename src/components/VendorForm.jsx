@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 function VendorForm({
   mode = "create",
   vendor,
@@ -9,7 +8,6 @@ function VendorForm({
   setVendors,
 }) {
   const router = useRouter();
-
   const isEditMode = mode === "edit";
   const handleSubmit = async (e) => {
     e.preventDefault();

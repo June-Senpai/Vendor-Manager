@@ -2,11 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import VendorCard from "./VendorCard";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function ShowVendor() {
   const [page, setPage] = useState(1);
   const [vendors, setVendors] = useState([]);
+  const router = useRouter();
 
+  const session = useSession();
+  console.log({ session });
+  if (session.status === "unauthenticated") {
+    router.replace("/login");
+  }
   const loaderRef = useRef();
 
   useEffect(() => {

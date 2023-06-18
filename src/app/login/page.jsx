@@ -8,7 +8,6 @@ export default function Login() {
 
   const handleSignIn = async () => {
     await signIn("google");
-    // router.replace("/");
   };
   return (
     <main className="flex items-center justify-center h-screen ">
