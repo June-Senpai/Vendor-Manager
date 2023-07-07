@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A web application built with Next.js and MongoDB that allows users to manage vendor information. Features include login with Google, creating and editing vendor details, and displaying a paginated list of vendors. Users can easily update vendor information or delete vendors after confirmation.
 
 ## Getting Started
 
